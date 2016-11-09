@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<!-- Built on Frappe. https://frappe.io/ -->
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Customize Form</title>
+	<meta name="generator" content="frappe">
+    <link type="text/css" rel="stylesheet" href="https://frappe.github.io/erpnext/assets/css/bootstrap.css">
+    <link type="text/css" rel="stylesheet" href="https://frappe.github.io/erpnext/assets/css/hljs.css">
+    <link type="text/css" rel="stylesheet" href="https://frappe.github.io/erpnext/assets/css/font-awesome.css">
+    <link type="text/css" rel="stylesheet" href="https://frappe.github.io/erpnext/assets/css/octicons/octicons.css">
+    <link type="text/css" rel="stylesheet" href="https://frappe.github.io/erpnext/assets/css/docs.css">
+
+    
+	<link rel="shortcut icon"
+		href="/assets/img/favicon.ico"
+		type="image/x-icon">
+	<link rel="icon"
+		href="/assets/img/favicon.ico"
+		type="image/x-icon">
+    
+
+		</head>
+<body data-path="user/manual/en/customize-erpnext/customize-form">
+	<div class="main-section">
+		<div>
+				<header>
+	<nav class="navbar navbar-default navbar-main" role="navigation">
+		<div class="container">
+			<div class="navbar-header">
+				<a class="navbar-brand ellipsis"
+					 href="https://frappe.github.io/erpnext//">
+					<span>ERPNext</span>
+				</a>
+				<div class="dropdown">
+					<button class="btn btn-default navbar-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+						<i class="octicon octicon-three-bars"></i>
+					</button>
+					<ul class="dropdown-menu dropdown-menu-right">
+<li data-label='<i class="octicon octicon-search"></i>' >
+	<a href="/#"
+		
+		>
+	<i class="octicon octicon-search"></i></a></li><li data-label='User Manual' >
+	<a href="https://frappe.github.io/erpnext/user/manual"
+		
+		>
+	User Manual</a></li><li data-label='Videos' >
+	<a href="https://frappe.github.io/erpnext/user/videos"
+		
+		>
+	Videos</a></li><li data-label='API Documentation' >
+	<a href="https://frappe.github.io/erpnext/current"
+		
+		>
+	API Documentation</a></li>
+
+<li class="divider"></li>
+<!-- post login tools -->
+
+</ul>
+				</div>
+			</div>
+			<div class="hidden-xs">
+				
+				<ul class="nav navbar-nav navbar-left">
+</ul>
+<ul class="nav navbar-nav navbar-right"><li data-label='<i class="octicon octicon-search"></i>' >
+	<a href="/#"
+		
+		>
+	<i class="octicon octicon-search"></i></a></li><li data-label='User Manual' >
+	<a href="https://frappe.github.io/erpnext/user/manual"
+		
+		>
+	User Manual</a></li><li data-label='Videos' >
+	<a href="https://frappe.github.io/erpnext/user/videos"
+		
+		>
+	Videos</a></li><li data-label='API Documentation' >
+	<a href="https://frappe.github.io/erpnext/current"
+		
+		>
+	API Documentation</a></li>
+	
+	<!-- post login tools -->
+
+</ul>
+				
+			</div>
+		</div>
+	</nav>
+</header><div class="hero-and-content">
+                <div data-html-block="hero"></div>
+                <div class="container" data-html-block="content">
+                
+<div class="page-container" id="page-user/manual/en/customize-erpnext/customize-form" data-path="{{ pathname }}"
+	>
+			<div class="row ">
+				
+				<div class=" page-content col-sm-12 ">
+					<div class="page-content-wrapper">
+						<div class="row page-head">
+							<div class='col-sm-12'>
+								
+								<div class="page-breadcrumbs">
+									
+									
+<ul class="breadcrumb">
+	<li>
+		<span class="icon icon-angle-left"></span>
+		<a href="https://frappe.github.io/erpnext//user/manual/en/customize-erpnext">
+		Customize ERPNext</a>
+	</li>
+	
+</ul>
+
+									
+								</div>
+								
+							</div>
+							<div class="col-sm-8 col-xs-6">
+								<h1>Customize Form</h1>
+							</div>
+							<div class="col-sm-4 col-xs-6">
+								
+
+								
+							</div>
+						</div>
+					</div>
+					<div class="page_content">
+<p><!--markdown-->
+Before we venture to learn form customization tool, click <a href="https://frappe.github.io/frappe/user/en/tutorial/doctypes.html">here</a> to understand the architecture of forms in ERPNext. It shall help you in using Customize Form tool more efficiently.</p>
+
+<p>Customize Form is the tool which allows user to customize property of the standard fields, and insert <a href="https://frappe.github.io/erpnext/user/manual/en/customize-erpnext/custom-field.html">custom fields</a> as per the requirement. Let's assume we need to set Project Name field as a mandatory field in the Sales Order form. Following are the steps which shall be followed to achieve this.</p>
+
+<h4>Step 1: Go to Customize Form</h4>
+
+<p>Go to Customize Form from:</p>
+
+<p><code>Setup &gt;&gt; Customize &gt;&gt; Customize Form</code></p>
+
+<p>You can also reach the Customize Form tool from the List Views.</p>
+
+<p><img alt="Customize Form List" class="screenshot" src="https://frappe.github.io/erpnext/assets/img/customize/customize-form-from-list-view.gif"></p>
+
+<h4>Step 2: Select Document Type</h4>
+
+<p>If navigate from the list view, Document Type will be automatically set in the Customize Form.</p>
+
+<p>If you reach customize form from the Setup module, or from awesome bar, then you will have to manually select Document Type in which customization needs to be made.</p>
+
+<p><img alt="Customize Form select doctype" class="screenshot" src="https://frappe.github.io/erpnext/assets/img/customize/customize-form-select-doctype.png"></p>
+
+<h4>Step 3: Edit Property</h4>
+
+<p>On selecting Document Type, all the fields of the Document Type will updated as rows in the Customize Form.</p>
+
+<p>To customized Project field, click on the respective row, and check "Mandatory". With this, Project field will become mandatory in the Sales Order.</p>
+
+<p><img alt="Customize Form select doctype" class="screenshot" src="https://frappe.github.io/erpnext/assets/img/customize/customize-form-edit-property.gif"></p>
+
+<p>Like setting setting field Mandatory, following are the other customization options in the Customize Form tool.</p>
+
+<ul>
+<li>Change <a href="https://frappe.github.io/erpnext/user/manual/en/customize-erpnext/articles/field-types.html">Field Type</a>.</li>
+<li>Edit Field Labels to suit your industry/language.</li>
+<li>Set field precision for the Currency field.</li>
+<li>To hide field, check Hidden.</li>
+<li>Customize Options for the Select field.</li>
+</ul>
+
+<h4>Step 4: Update</h4>
+
+<p>To save your customizations, Update Customize Form.</p>
+
+<p>To have customizations take effect, reload your ERPNext account once.</p>
+
+<h4>Other Customizations</h4>
+
+<p>From Customize Form, you can also do following customizations:</p>
+
+<ul>
+<li>Max Attachment Limit: Define <a href="https://frappe.github.io/erpnext/user/manual/en/customize-erpnext/articles/increase-max-attachments.html">maximum no. of files</a> which can attached on a document.</li>
+<li>Default Print Format: For one document type, you can have multiple print formats. In the Customize Form, you can also set default Print Format for a document.</li>
+<li>Set <a href="https://frappe.github.io/erpnext/user/manual/en/customize-erpnext/document-title.html">Title Field</a></li>
+<li>Sort Field and Sort Order: Define field based on which documents in the list view will be sorted.</li>
+</ul>
+
+<blockquote>
+  <p>Note: Though we want you to do everything you can to customize your ERP based on your business needs, we recommend that you do not make “wild” changes to the forms. This is because, these changes may affect certain operations and may mess up your forms. Make small changes and see its effect before doing some more.</p>
+</blockquote>
+
+<p>Following are the properties which you can customize for a specific field from Customize Form.</p>
+
+<p><style>
+    td {
+    padding:5px 10px 5px 5px;
+    };
+    img {
+    align:center;
+    };
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+</style></p>
+
+<table border="1" width="700px">
+  <tbody>
+    <tr>
+      <td style="text-align: center;"><b>Field property</b></td>
+      <td style="text-align: center;"><b>Purpose</b></td>
+    </tr>
+    <tr>
+      <td>Print hide</td>
+      <td>Checking it will hide field from the Standard print format.</td>
+    </tr>
+    <tr>
+      <td>Unique</td>
+      <td>For a unique field, same value cannot repeat in another document.</td>
+    </tr>
+    <tr>
+      <td>Hidden</td>
+      <td>Checking it field will hide field in the data entry form.</td>
+    </tr>
+    <tr>
+      <td>Mandatory</td>
+      <td>Checking it will set field as mandatory.</td>
+    </tr>
+    <tr>
+      <td>Field Type</td>
+      <td>Click <a href="https://frappe.github.io/erpnext/user/manual/en/customize-erpnext/articles/field-types.html">here</a> to learn about of fields types.</td>
+    </tr>
+    <tr>
+      <td>Options</td>
+      <td>Possible result for a drop down fields can be listed here. Also for a link field, relevant Doctype can be provided.</td>
+    </tr>
+    <tr>
+      <td>Allow on submit</td>
+      <td>Checking it will let user update value in field even in submitted form.</td>
+    </tr>
+    <tr>
+      <td>Default</td>
+      <td>Value defined in default will be pulled on new record creation.</td>
+    </tr>
+    <tr>
+      <td>Description</td>
+      <td>Gives field description for users understanding.</td>
+    </tr>
+    <tr>
+      <td>Label</td>
+      <td>Label is the field name which appears in form.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><p class="btn-next-wrapper">Next: <a class="btn-next" href="https://frappe.github.io/erpnext/user/manual/en/customize-erpnext/custom-doctype">Custom Doctype</a></p></p>
+
+</div>
+				</div>
+			</div>
+</div>
+
+				
+<div class="page-container">
+	<div class="page-content">
+	<div class="edit-container text-center">
+		<i class="icon icon-smile"></i>
+		<a class="text-muted edit" href="https://github.com/frappe/erpnext/blob/develop/erpnext/docs/user/manual/en/customize-erpnext/customize-form.md">
+			Improve this page
+		</a>
+	</div>
+	</div>
+</div>
+                </div>
+            </div>
+			<footer class="docs-footer">
+				<div class="container"><div class="built-with-frappe text-center">
+                    <img class="frappe-bird" src="https://frappe.github.io/erpnext/assets/img/frappe-bird-grey.svg">
+                    <h3>By Frappe Technologies Pvt. Ltd.</h3>
+                </div>
+                <div class="text-center">
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="https://github.com/frappe/erpnext">
+                            Source</a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/frappe/erpnext/issues">
+                            Issues</a>
+                        </li>
+                        <li>
+                            <a href="https://frappe.github.io/erpnext/license.html">
+                            License</a>
+                        </li>
+                        <li>
+                            <a href="https://discuss.erpnext.com">
+                            Forum</a>
+                        </li>
+                        <li>
+                            <a href="https://frappe.io/apps">
+                            Frappe Apps</a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+			</footer>
+		</div>
+	</div>
+
+	<script type="text/javascript" src="https://frappe.github.io/erpnext/assets/js/jquery.min.js"></script>
+	<script type="text/javascript" src="https://frappe.github.io/erpnext/assets/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="https://frappe.github.io/erpnext/assets/js/highlight.pack.js"></script>
+	<script type="text/javascript" src="https://frappe.github.io/erpnext/assets/js/docs.js"></script>
+
+	<!-- js should be loaded in body! -->
+	<script>
+        window.docs_base_url = "https://frappe.github.io/erpnext";
+    </script>
+
+	<!-- csrf_token --></body>
+</html>
