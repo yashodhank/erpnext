@@ -140,7 +140,7 @@
 <div class="dev-header">
 
 <a class="btn btn-default btn-sm" disabled style="margin-bottom: 10px;">
-	Version 6.x.x</a>
+	Version 7.x.x</a>
 
 
 	<a class="btn btn-default btn-sm" href="https://github.com/frappe/erpnext/tree/develop/erpnext/schools/doctype/assessment"
@@ -197,7 +197,7 @@
         
         <tr >
             <td>3</td>
-            <td class="danger" title="Mandatory"><code>student_group</code></td>
+            <td ><code>student_group</code></td>
             <td >
                 Link</td>
             <td >
@@ -218,6 +218,27 @@
         
         <tr >
             <td>4</td>
+            <td ><code>student_batch</code></td>
+            <td >
+                Link</td>
+            <td >
+                Student Batch
+                
+            </td>
+            <td>
+                
+                
+
+
+<a href="https://frappe.github.io/erpnext/current/models/schools/student_batch">Student Batch</a>
+
+
+                
+            </td>
+        </tr>
+        
+        <tr >
+            <td>5</td>
             <td ><code>grading_structure</code></td>
             <td >
                 Link</td>
@@ -238,7 +259,7 @@
         </tr>
         
         <tr >
-            <td>5</td>
+            <td>6</td>
             <td class="danger" title="Mandatory"><code>course</code></td>
             <td >
                 Link</td>
@@ -259,7 +280,7 @@
         </tr>
         
         <tr >
-            <td>6</td>
+            <td>7</td>
             <td ><code>column_break_2</code></td>
             <td class="info">
                 Column Break</td>
@@ -271,7 +292,7 @@
         </tr>
         
         <tr >
-            <td>7</td>
+            <td>8</td>
             <td ><code>assessment_group</code></td>
             <td >
                 Link</td>
@@ -292,7 +313,7 @@
         </tr>
         
         <tr >
-            <td>8</td>
+            <td>9</td>
             <td ><code>supervisor</code></td>
             <td >
                 Link</td>
@@ -313,7 +334,7 @@
         </tr>
         
         <tr >
-            <td>9</td>
+            <td>10</td>
             <td ><code>supervisor_name</code></td>
             <td >
                 Data</td>
@@ -325,7 +346,7 @@
         </tr>
         
         <tr >
-            <td>10</td>
+            <td>11</td>
             <td ><code>examiner</code></td>
             <td >
                 Link</td>
@@ -346,7 +367,7 @@
         </tr>
         
         <tr >
-            <td>11</td>
+            <td>12</td>
             <td ><code>examiner_name</code></td>
             <td >
                 Data</td>
@@ -358,7 +379,7 @@
         </tr>
         
         <tr class="info">
-            <td>12</td>
+            <td>13</td>
             <td ><code>section_break_5</code></td>
             <td >
                 Section Break</td>
@@ -370,7 +391,7 @@
         </tr>
         
         <tr >
-            <td>13</td>
+            <td>14</td>
             <td class="danger" title="Mandatory"><code>schedule_date</code></td>
             <td >
                 Date</td>
@@ -382,7 +403,7 @@
         </tr>
         
         <tr >
-            <td>14</td>
+            <td>15</td>
             <td ><code>room</code></td>
             <td >
                 Link</td>
@@ -403,7 +424,7 @@
         </tr>
         
         <tr >
-            <td>15</td>
+            <td>16</td>
             <td ><code>column_break_4</code></td>
             <td class="info">
                 Column Break</td>
@@ -415,7 +436,7 @@
         </tr>
         
         <tr >
-            <td>16</td>
+            <td>17</td>
             <td class="danger" title="Mandatory"><code>from_time</code></td>
             <td >
                 Time</td>
@@ -427,7 +448,7 @@
         </tr>
         
         <tr >
-            <td>17</td>
+            <td>18</td>
             <td class="danger" title="Mandatory"><code>to_time</code></td>
             <td >
                 Time</td>
@@ -439,7 +460,7 @@
         </tr>
         
         <tr class="info">
-            <td>18</td>
+            <td>19</td>
             <td ><code>section_break_11</code></td>
             <td >
                 Section Break</td>
@@ -451,7 +472,7 @@
         </tr>
         
         <tr >
-            <td>19</td>
+            <td>20</td>
             <td ><code>results</code></td>
             <td >
                 Table</td>
@@ -472,7 +493,7 @@
         </tr>
         
         <tr >
-            <td>20</td>
+            <td>21</td>
             <td ><code>amended_from</code></td>
             <td >
                 Link</td>
@@ -537,7 +558,7 @@
 		<b>validate_overlap</b>
         <i class="text-muted">(self)</i>
     </p>
-	<div class="docs-attr-desc"><p>Validates overlap for Student Group, Supervisor, Room</p>
+	<div class="docs-attr-desc"><p>Validates overlap for Student Group/Student Batch, Instructor, Room</p>
 </div>
 	<br>
 
