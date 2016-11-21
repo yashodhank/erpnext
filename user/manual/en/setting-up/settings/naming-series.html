@@ -14,10 +14,10 @@
 
     
 	<link rel="shortcut icon"
-		href="/assets/img/favicon.ico"
+		href="https://frappe.github.io/erpnext/assets/img/favicon.png"
 		type="image/x-icon">
 	<link rel="icon"
-		href="/assets/img/favicon.ico"
+		href="https://frappe.github.io/erpnext/assets/img/favicon.png"
 		type="image/x-icon">
     
 
@@ -31,7 +31,7 @@
 			<div class="navbar-header">
 				<a class="navbar-brand ellipsis"
 					 href="https://frappe.github.io/erpnext//">
-					<span>ERPNext</span>
+					<span><img class="brand-logo" src="https://frappe.github.io/erpnext/assets/img/erpnext-docs.png"> ERPNext</img></span>
 				</a>
 				<div class="dropdown">
 					<button class="btn btn-default navbar-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
@@ -50,11 +50,15 @@
 	<a href="https://frappe.github.io/erpnext/user/videos"
 		
 		>
-	Videos</a></li><li data-label='API Documentation' >
+	Videos</a></li><li data-label='API' >
 	<a href="https://frappe.github.io/erpnext/current"
 		
 		>
-	API Documentation</a></li>
+	API</a></li><li data-label='Forum' >
+	<a href="https://discuss.erpnext.com"
+		
+		>
+	Forum</a></li>
 
 <li class="divider"></li>
 <!-- post login tools -->
@@ -78,11 +82,15 @@
 	<a href="https://frappe.github.io/erpnext/user/videos"
 		
 		>
-	Videos</a></li><li data-label='API Documentation' >
+	Videos</a></li><li data-label='API' >
 	<a href="https://frappe.github.io/erpnext/current"
 		
 		>
-	API Documentation</a></li>
+	API</a></li><li data-label='Forum' >
+	<a href="https://discuss.erpnext.com"
+		
+		>
+	Forum</a></li>
 	
 	<!-- post login tools -->
 
@@ -184,6 +192,18 @@ name and the starting point in the “Update Series” section.</p>
 <p><img class="screenshot" alt="Naming Series" src="https://frappe.github.io/erpnext/assets/img/setup/settings/naming-series.gif"></p>
 
 <p><p class="btn-next-wrapper">Next: <a class="btn-next" href="https://frappe.github.io/erpnext/user/manual/en/setting-up/settings/global-defaults">Global Defaults</a></p></p>
+
+<h3>4. Custom Field in Naming Series</h3>
+
+<p>Some companies prefers to make use of "short-codes" for suppliers, i.e. WN for company "Web Notes" that later can be used in naming series for quick identification.</p>
+
+<h4>Example:</h4>
+
+<pre><code>A custom field "Vendor ID" is created under Document: Supplier.
+Then under Naming Series, we should allow something like
+    PO-.YY.MM.-.vendor_id.-.#####
+    Resulting in "PO-1503-WN-00001"
+</code></pre>
 
 </div>
 				</div>
