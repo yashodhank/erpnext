@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Scheduling Tool</title>
+	<title>Course Scheduling Tool</title>
 	<meta name="generator" content="frappe">
     <link type="text/css" rel="stylesheet" href="https://frappe.github.io/erpnext/assets/css/bootstrap.css">
     <link type="text/css" rel="stylesheet" href="https://frappe.github.io/erpnext/assets/css/hljs.css">
@@ -22,7 +22,7 @@
     
 
 		</head>
-<body data-path="current/models/schools/scheduling_tool">
+<body data-path="current/models/schools/course_scheduling_tool">
 	<div class="main-section">
 		<div>
 				<header>
@@ -103,7 +103,7 @@
                 <div data-html-block="hero"></div>
                 <div class="container" data-html-block="content">
                 
-<div class="page-container" id="page-current/models/schools/scheduling_tool" data-path="{{ pathname }}"
+<div class="page-container" id="page-current/models/schools/course_scheduling_tool" data-path="{{ pathname }}"
 	>
 			<div class="row ">
 				
@@ -129,7 +129,7 @@
 								
 							</div>
 							<div class="col-sm-8 col-xs-6">
-								<h1>Scheduling Tool</h1>
+								<h1>Course Scheduling Tool</h1>
 							</div>
 							<div class="col-sm-4 col-xs-6">
 								
@@ -139,7 +139,7 @@
 						</div>
 					</div>
 					<div class="page_content">
-<!-- title: Scheduling Tool -->
+<!-- title: Course Scheduling Tool -->
 
 
 
@@ -151,7 +151,7 @@
 	Version 7.x.x</a>
 
 
-	<a class="btn btn-default btn-sm" href="https://github.com/frappe/erpnext/tree/develop/erpnext/schools/doctype/scheduling_tool"
+	<a class="btn btn-default btn-sm" href="https://github.com/frappe/erpnext/tree/develop/erpnext/schools/doctype/course_scheduling_tool"
 		target="_blank" style="margin-left: 10px; margin-bottom: 10px;"><i class="octicon octicon-mark-github"></i> Source</a>
 
 </div>
@@ -329,39 +329,6 @@
         
         <tr >
             <td>9</td>
-            <td class="danger" title="Mandatory"><code>room</code></td>
-            <td >
-                Link</td>
-            <td >
-                Room
-                
-            </td>
-            <td>
-                
-                
-
-
-<a href="https://frappe.github.io/erpnext/current/models/schools/room">Room</a>
-
-
-                
-            </td>
-        </tr>
-        
-        <tr >
-            <td>10</td>
-            <td ><code>column_break_9</code></td>
-            <td class="info">
-                Column Break</td>
-            <td >
-                
-                
-            </td>
-            <td></td>
-        </tr>
-        
-        <tr >
-            <td>11</td>
             <td class="danger" title="Mandatory"><code>instructor</code></td>
             <td >
                 Link</td>
@@ -382,7 +349,7 @@
         </tr>
         
         <tr >
-            <td>12</td>
+            <td>10</td>
             <td ><code>instructor_name</code></td>
             <td >
                 Read Only</td>
@@ -392,6 +359,39 @@
             </td>
             <td>
                 <pre>instructor.instructor_name</pre>
+            </td>
+        </tr>
+        
+        <tr >
+            <td>11</td>
+            <td ><code>column_break_9</code></td>
+            <td class="info">
+                Column Break</td>
+            <td >
+                
+                
+            </td>
+            <td></td>
+        </tr>
+        
+        <tr >
+            <td>12</td>
+            <td class="danger" title="Mandatory"><code>room</code></td>
+            <td >
+                Link</td>
+            <td >
+                Room
+                
+            </td>
+            <td>
+                
+                
+
+
+<a href="https://frappe.github.io/erpnext/current/models/schools/room">Room</a>
+
+
+                
             </td>
         </tr>
         
@@ -506,7 +506,7 @@ Sunday</pre>
 
     <hr>
     <h3>Controller</h3>
-    <h4>erpnext.schools.doctype.scheduling_tool.scheduling_tool</h4>
+    <h4>erpnext.schools.doctype.course_scheduling_tool.course_scheduling_tool</h4>
 
     
 
@@ -514,7 +514,7 @@ Sunday</pre>
 
 	
         
-	<h3 style="font-weight: normal;">Class <b>SchedulingTool</b></h3>
+	<h3 style="font-weight: normal;">Class <b>CourseSchedulingTool</b></h3>
     
     <p style="padding-left: 30px;"><i>Inherits from frappe.model.document.Document</i></h4>
     
@@ -643,7 +643,7 @@ Sunday</pre>
                             Forum</a>
                         </li>
                         <li>
-                            <a href="https://frappe.io/apps">
+                            <a href="https://community.erpnext.com/apps">
                             Frappe Apps</a>
                         </li>
                     </ul>
