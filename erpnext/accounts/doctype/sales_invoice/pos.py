@@ -3,7 +3,6 @@
 
 from __future__ import unicode_literals
 import frappe, json
-from frappe import _
 from frappe.utils import nowdate
 from erpnext.setup.utils import get_exchange_rate
 from erpnext.stock.get_item_details import get_pos_profile
@@ -40,12 +39,16 @@ def get_pos_data():
 		'pricing_rules': get_pricing_rule_data(doc),
 		'print_template': print_template,
 		'pos_profile': pos_profile,
-		'meta': {
-			'invoice': frappe.get_meta('Sales Invoice'),
-			'items': frappe.get_meta('Sales Invoice Item'),
-			'taxes': frappe.get_meta('Sales Taxes and Charges')
-		}
+		'meta': get_meta()
 	}
+
+def get_meta():
+	doctype_meta = {'customer': frappe.get_meta('Customer')}
+	for row in frappe.get_all('DocField', fields = ['fieldname', 'options'],
+		filters = {'parent': 'Sales Invoice', 'fieldtype': 'Table'}):
+		doctype_meta[row.fieldname] = frappe.get_meta(row.options)
+
+	return doctype_meta
 
 def get_company_data(company):
 	return frappe.get_all('Company', fields = ["*"], filters= {'name': company})[0]
@@ -63,8 +66,10 @@ def update_pos_profile_data(doc, pos_profile, company_data):
 
 	doc.currency = pos_profile.get('currency') or company_data.default_currency
 	doc.conversion_rate = 1.0
+
 	if doc.currency != company_data.default_currency:
-		doc.conversion_rate = get_exchange_rate(doc.currency, company_data.default_currency)
+		doc.conversion_rate = get_exchange_rate(doc.currency, company_data.default_currency, doc.posting_date)
+
 	doc.selling_price_list = pos_profile.get('selling_price_list') or \
 		frappe.db.get_value('Selling Settings', None, 'selling_price_list')
 	doc.naming_series = pos_profile.get('naming_series') or 'SINV-'
@@ -73,6 +78,8 @@ def update_pos_profile_data(doc, pos_profile, company_data):
 	doc.apply_discount_on = pos_profile.get('apply_discount_on') if pos_profile.get('apply_discount') else ''
 	doc.customer_group = pos_profile.get('customer_group') or get_root('Customer Group')
 	doc.territory = pos_profile.get('territory') or get_root('Territory')
+	if pos_profile.get('tc_name'):
+		doc.terms = frappe.db.get_value('Terms and Conditions', pos_profile.get('tc_name'), 'terms')
 
 def get_root(table):
 	root = frappe.db.sql(""" select name from `tab%(table)s` having
@@ -115,9 +122,9 @@ def get_items_list(pos_profile):
 	item_groups = []
 	if pos_profile.get('item_groups'):
 		# Get items based on the item groups defined in the POS profile
-
-		cond = "item_group in (%s)"%(', '.join(['%s']*len(pos_profile.get('item_groups'))))
-		item_groups = [d.item_group for d in pos_profile.get('item_groups')]
+		for d in pos_profile.get('item_groups'):
+			item_groups.extend(get_child_nodes('Item Group', d.item_group))
+		cond = "item_group in (%s)"%(', '.join(['%s']*len(item_groups)))
 
 	return frappe.db.sql(""" 
 		select
@@ -135,13 +142,18 @@ def get_customers_list(pos_profile):
 	customer_groups = []
 	if pos_profile.get('customer_groups'):
 		# Get customers based on the customer groups defined in the POS profile
-
-		cond = "customer_group in (%s)"%(', '.join(['%s']*len(pos_profile.get('customer_groups'))))
-		customer_groups = [d.customer_group for d in pos_profile.get('customer_groups')]
+		for d in pos_profile.get('customer_groups'):
+			customer_groups.extend(get_child_nodes('Customer Group', d.customer_group))
+		cond = "customer_group in (%s)"%(', '.join(['%s']*len(customer_groups)))
 
 	return frappe.db.sql(""" select name, customer_name, customer_group,
 		territory from tabCustomer where disabled = 0
 		and {cond}""".format(cond=cond), tuple(customer_groups), as_dict=1) or {}
+
+def get_child_nodes(group_type, root):
+	lft, rgt = frappe.db.get_value(group_type, root, ["lft", "rgt"])
+	return frappe.db.sql_list(""" Select name from `tab{tab}` where
+			lft >= {lft} and rgt <= {rgt}""".format(tab=group_type, lft=lft, rgt=rgt))
 
 def get_serial_no_data(pos_profile, company):
 	# get itemwise serial no data
@@ -240,8 +252,7 @@ def make_invoice(doc_list):
 
 	for docs in doc_list:
 		for name, doc in docs.items():
-			if not frappe.db.exists('Sales Invoice',
-				{'offline_pos_name': name, 'docstatus': ("<", "2")}):
+			if not frappe.db.exists('Sales Invoice', {'offline_pos_name': name}):
 				validate_records(doc)
 				si_doc = frappe.new_doc('Sales Invoice')
 				si_doc.offline_pos_name = name
@@ -286,6 +297,7 @@ def submit_invoice(si_doc, name):
 	try:
 		si_doc.insert()
 		si_doc.submit()
+		frappe.db.commit()
 	except Exception, e:
 		if frappe.message_log: frappe.message_log.pop()
 		frappe.db.rollback()
@@ -296,4 +308,3 @@ def save_invoice(e, si_doc, name):
 		si_doc.docstatus = 0
 		si_doc.flags.ignore_mandatory = True
 		si_doc.insert()
-		frappe.log_error(frappe.get_traceback())

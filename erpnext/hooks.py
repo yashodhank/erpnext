@@ -6,7 +6,7 @@ app_name = "erpnext"
 app_title = "ERPNext"
 app_publisher = "Frappe Technologies Pvt. Ltd."
 app_description = """ERP made simple"""
-app_icon = "icon-th"
+app_icon = "fa fa-th"
 app_color = "#e74c3c"
 app_email = "info@erpnext.com"
 app_license = "GNU General Public License (v3)"
@@ -48,7 +48,7 @@ website_generators = ["Item Group", "Item", "Sales Partner", "Job Opening", "Stu
 
 website_context = {
 	"favicon": 	"/assets/erpnext/images/favicon.png",
-	"splash_image": "/assets/erpnext/images/splash.png"
+	"splash_image": "/assets/erpnext/images/erp-icon.svg"
 }
 
 website_route_rules = [
@@ -114,10 +114,8 @@ portal_menu_items = [
 ]
 
 default_roles = [
-	{'role': 'Customer', 'doctype':'Contact', 'email_field': 'email_id',
-		'filters': {'ifnull(customer, "")': ('!=', '')}},
-	{'role': 'Supplier', 'doctype':'Contact', 'email_field': 'email_id',
-		'filters': {'ifnull(supplier, "")': ('!=', '')}},
+	{'role': 'Customer', 'doctype':'Contact', 'email_field': 'email_id'},
+	{'role': 'Supplier', 'doctype':'Contact', 'email_field': 'email_id'},
 	{'role': 'Student', 'doctype':'Student', 'email_field': 'student_email_id'}
 ]
 
@@ -127,7 +125,6 @@ has_website_permission = {
 	"Supplier Quotation": "erpnext.controllers.website_list_for_contact.has_website_permission",
 	"Delivery Note": "erpnext.controllers.website_list_for_contact.has_website_permission",
 	"Issue": "erpnext.support.doctype.issue.issue.has_website_permission",
-	"Address": "erpnext.utilities.doctype.address.address.has_website_permission",
 	"Discussion": "erpnext.schools.web_form.discussion.discussion.has_website_permission"
 }
 
@@ -155,15 +152,13 @@ doc_events = {
 		"on_cancel": "erpnext.stock.doctype.material_request.material_request.update_completed_and_requested_qty"
 	},
 	"User": {
+		"after_insert": "frappe.email.doctype.contact.contact.update_contact",
 		"validate": "erpnext.hr.doctype.employee.employee.validate_employee_role",
 		"on_update": "erpnext.hr.doctype.employee.employee.update_user_permissions",
-		"on_update": "erpnext.utilities.doctype.contact.contact.update_contact"
+		"on_update": "erpnext.utilities.address_and_contact.set_default_role"
 	},
 	("Sales Taxes and Charges Template", 'Price List'): {
 		"on_update": "erpnext.shopping_cart.doctype.shopping_cart_settings.shopping_cart_settings.validate_cart_settings"
-	},
-	"Address": {
-		"validate": "erpnext.shopping_cart.cart.set_customer_in_address"
 	},
 
 	# bubble transaction notification on master

@@ -30,13 +30,13 @@ frappe.treeview_settings["Account"] = {
 			options: ['Asset', 'Liability', 'Equity', 'Income', 'Expense'].join('\n'),
 			depends_on: 'eval:doc.is_group && !doc.parent_account'},
 		{fieldtype:'Select', fieldname:'account_type', label:__('Account Type'),
-			options: ['', 'Accumulated Depreciation', 'Bank', 'Cash', 'Chargeable', 'Cost of Goods Sold', 'Depreciation', 
-				'Equity', 'Expense Account', 'Expenses Included In Valuation', 'Fixed Asset', 'Income Account', 'Payable', 'Receivable', 
+			options: ['', 'Accumulated Depreciation', 'Bank', 'Cash', 'Chargeable', 'Cost of Goods Sold', 'Depreciation',
+				'Equity', 'Expense Account', 'Expenses Included In Valuation', 'Fixed Asset', 'Income Account', 'Payable', 'Receivable',
 				'Round Off', 'Stock', 'Stock Adjustment', 'Stock Received But Not Billed', 'Tax', 'Temporary'].join('\n'),
 			description: __("Optional. This setting will be used to filter in various transactions.")
 		},
 		{fieldtype:'Float', fieldname:'tax_rate', label:__('Tax Rate'),
-			depends_on: 'eval:doc.is_group==1&&doc.account_type=="Tax"'},
+			depends_on: 'eval:doc.is_group==0&&doc.account_type=="Tax"'},
 		{fieldtype:'Link', fieldname:'warehouse', label:__('Warehouse'), options:"Warehouse",
 			depends_on: 'eval:(!doc.is_group&&doc.account_type=="Stock")',
 			get_query: function() {

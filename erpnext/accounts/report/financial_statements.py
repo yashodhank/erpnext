@@ -3,10 +3,8 @@
 
 from __future__ import unicode_literals
 import frappe
-import math
 from frappe import _
-from frappe.utils import (flt, getdate, get_first_day, get_last_day, date_diff,
-	add_months, add_days, formatdate, cint)
+from frappe.utils import flt, getdate, get_first_day, add_months, add_days, formatdate
 
 def get_period_list(from_fiscal_year, to_fiscal_year, periodicity):
 	"""Get a list of dict {"from_date": from_date, "to_date": to_date, "key": key, "label": label}
@@ -42,9 +40,6 @@ def get_period_list(from_fiscal_year, to_fiscal_year, periodicity):
 		if to_date == get_first_day(to_date):
 			# if to_date is the first day, get the last day of previous month
 			to_date = add_days(to_date, -1)
-		else:
-			# to_date should be the last day of the new to_date's month
-			to_date = get_last_day(to_date)
 
 		if to_date <= year_end_date:
 			# the normal case
@@ -152,7 +147,6 @@ def calculate_values(accounts_by_name, gl_entries_by_account, period_list, accum
 				
 def get_date_fiscal_year(date):
 	from erpnext.accounts.utils import get_fiscal_year
-	
 	return get_fiscal_year(date)[0]
 
 def accumulate_values_into_parents(accounts, accounts_by_name, period_list, accumulated_values):

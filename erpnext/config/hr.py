@@ -150,15 +150,26 @@ def get_data():
 		},
 
 		{
-			"label": _("Tools"),
-			"icon": "icon-wrench",
+			"label": _("Training"),
 			"items": [
-
+				{
+					"type": "doctype",
+					"name": "Training Event"
+				},
+				{
+					"type": "doctype",
+					"name": "Training Result"
+				},
+				{
+					"type": "doctype",
+					"name": "Training Feedback"
+				},
 			]
 		},
+
 		{
 			"label": _("Setup"),
-			"icon": "icon-cog",
+			"icon": "fa fa-cog",
 			"items": [
 				{
 					"type": "doctype",
@@ -193,7 +204,7 @@ def get_data():
 		},
 		{
 			"label": _("Reports"),
-			"icon": "icon-list",
+			"icon": "fa fa-list",
 			"items": [
 				{
 					"type": "report",
@@ -221,7 +232,7 @@ def get_data():
 				{
 					"type": "report",
 					"is_query_report": True,
-					"name": "Monthly Salary Register",
+					"name": "Salary Register",
 					"doctype": "Salary Slip"
 				},
 				{
@@ -235,7 +246,7 @@ def get_data():
 		},
 		{
 			"label": _("Help"),
-			"icon": "icon-facetime-video",
+			"icon": "fa fa-facetime-video",
 			"items": [
 				{
 					"type": "help",
